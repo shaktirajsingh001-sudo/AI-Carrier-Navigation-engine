@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn IQ — AI Career Navigator (ED-01)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #FAF9F5;
+      background-image: 
+        linear-gradient(to right, rgba(229, 231, 235, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(229, 231, 235, 0.5) 1px, transparent 1px);
+      background-size: 24px 24px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- TOP HORIZONTAL NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-slate-200 px-6 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo & Track Badge -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+          🎓
+        </div>
+        <div>
+          <span class="text-xl font-extrabold text-slate-900 tracking-tight">Learn <span class="text-amber-500">IQ</span></span>
+          <span class="hidden sm:inline-block ml-2 text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-semibold border border-amber-200">
+            ED-01 | Track 07
+          </span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-1 text-sm font-semibold text-slate-600">
+        <button onclick="switchTab('home')" id="nav-home" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition text-amber-600 bg-amber-50">Home</button>
+        <button onclick="switchTab('courses')" id="nav-courses" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">Courses</button>
+        <button onclick="switchTab('skills')" id="nav-skills" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">Student Skills</button>
+        <button onclick="switchTab('corporate')" id="nav-corporate" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">Corporate Training</button>
+        <button onclick="switchTab('assistant')" id="nav-assistant" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">AI Assistant</button>
+        <button onclick="switchTab('dashboard')" id="nav-dashboard" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">Dashboard</button>
+        <button onclick="switchTab('about')" id="nav-about" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">About</button>
+        <button onclick="switchTab('contact')" id="nav-contact" class="px-3 py-1.5 rounded-lg hover:bg-slate-200/60 transition">Contact</button>
+      </nav>
+
+      <!-- CTA Button -->
+      <div>
+        <button onclick="switchTab('skills')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-2 rounded-full shadow-sm text-sm transition">
+          Start learning
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="max-w-7xl mx-auto px-6 py-8 flex-1 w-full">
+
+    <!-- TAB 1: HOME -->
+    <section id="tab-home" class="space-y-8">
+      <div class="bg-amber-50/70 border border-amber-200/80 rounded-3xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center shadow-sm">
+        <div class="space-y-6">
+          <span class="inline-block text-xs font-bold text-amber-800 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full uppercase tracking-wider">
+            ED-01 Solution by Lakshya Shekhawat
+          </span>
+          <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Learn with clarity.<br>
+            <span class="text-amber-500">Get job-ready</span> faster.
+          </h1>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Bridge your 1st & 2nd Year CSE B.Tech subjects with real industry job expectations using personalized AI skill-gap maps and adaptive learning roadmaps.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="switchTab('courses')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-6 py-3 rounded-xl shadow-sm text-sm transition flex items-center">
+              Explore courses <span class="ml-2">→</span>
+            </button>
+            <button onclick="switchTab('assistant')" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-xl text-sm transition">
+              Try the AI assistant
+            </button>
+          </div>
+          <div class="pt-4 grid grid-cols-4 gap-4 border-t border-amber-200/60 text-center">
+            <div>
+              <div class="text-xl font-black text-slate-900">1.2L+</div>
+              <div class="text-xs text-slate-500 font-medium">Learners</div>
+            </div>
+            <div>
+              <div class="text-xl font-black text-slate-900">120+</div>
+              <div class="text-xs text-slate-500 font-medium">Courses</div>
+            </div>
+            <div>
+              <div class="text-xl font-black text-slate-900">340+</div>
+              <div class="text-xs text-slate-500 font-medium">Partners</div>
+            </div>
+            <div>
+              <div class="text-xl font-black text-slate-900">92%</div>
+              <div class="text-xs text-slate-500 font-medium">Completion</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Illustration Box -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm text-center flex flex-col items-center justify-center space-y-4 min-h-[300px]">
+          <div class="w-24 h-24 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-5xl">
+            🤖
+          </div>
+          <h3 class="text-lg font-bold text-slate-900">AI Career Navigator Engine</h3>
+          <p class="text-xs text-slate-500 max-w-xs">
+            SFIA & O*NET taxonomy alignment for CSE engineering students.
+          </p>
+          <div class="flex space-x-2">
+            <span class="text-xs bg-slate-100 border px-2.5 py-1 rounded-md text-slate-600 font-medium">C / C++</span>
+            <span class="text-xs bg-slate-100 border px-2.5 py-1 rounded-md text-slate-600 font-medium">DSA</span>
+            <span class="text-xs bg-slate-100 border px-2.5 py-1 rounded-md text-slate-600 font-medium">DBMS</span>
+            <span class="text-xs bg-slate-100 border px-2.5 py-1 rounded-md text-slate-600 font-medium">OS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: COURSES -->
+    <section id="tab-courses" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">COURSE CATALOGUE</span>
+        <h2 class="text-3xl font-black text-slate-900">Courses designed for real outcomes</h2>
+        <p class="text-slate-600 text-sm mt-1">Blended core CSE engineering subjects with practical industry deliverables.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Course 1 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">1st Year CSE</span>
+          <h3 class="text-lg font-bold text-slate-900">C Programming & Data Structures</h3>
+          <p class="text-xs text-slate-600">Pointers, dynamic memory allocation, linked lists, stacks, queues, and tree traversals.</p>
+          <div class="text-xs text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+            <strong>Capstone:</strong> Build a custom memory allocator in C
+          </div>
+        </div>
+        <!-- Course 2 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">2nd Year CSE</span>
+          <h3 class="text-lg font-bold text-slate-900">DBMS & SQL Architecture</h3>
+          <p class="text-xs text-slate-600">Relational algebra, normalization (1NF-3NF), indexing, B-Trees, ACID properties, and query optimization.</p>
+          <div class="text-xs text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+            <strong>Capstone:</strong> High-concurrency Banking API database schema
+          </div>
+        </div>
+        <!-- Course 3 -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+          <span class="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">2nd Year CSE</span>
+          <h3 class="text-lg font-bold text-slate-900">Operating Systems & OS Design</h3>
+          <p class="text-xs text-slate-600">Process synchronization, mutex locks, semaphores, CPU scheduling algorithms, and paging.</p>
+          <div class="text-xs text-amber-700 bg-amber-50 p-2 rounded border border-amber-200">
+            <strong>Capstone:</strong> Multi-threaded CPU scheduler simulator
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: STUDENT SKILLS -->
+    <section id="tab-skills" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">STUDENT PROFILE & SKILL MATRIX</span>
+        <h2 class="text-3xl font-black text-slate-900">Map your CSE degree to target roles</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Input Form -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm lg:col-span-2 space-y-4">
+          <h3 class="font-bold text-slate-900 text-lg">Current Capabilities & Schedule</h3>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Your Name</label>
+              <input type="text" id="studentName" value="Lakshya Shekhawat" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-600 mb-1">Academic Year</label>
+              <select id="studentYear" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm">
+                <option value="1st Year (Sem 1-2)">1st Year B.Tech CSE</option>
+                <option value="2nd Year (Sem 3-4)" selected>2nd Year B.Tech CSE</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Target Role</label>
+            <select id="targetRoleSelect" onchange="updateSkillMatrix()" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm bg-slate-50 font-bold text-slate-800">
+              <option value="sde1">Software Development Engineer (SDE-1)</option>
+              <option value="backend">Backend Systems Engineer</option>
+              <option value="ai_ml">AI / Machine Learning Specialist</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label class="text-xs font-semibold text-slate-600">Weekly Available Time for Upskilling</label>
+              <span id="hoursLabel" class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">15 hrs/wk</span>
+            </div>
+            <input type="range" id="hoursSlider" min="5" max="30" value="15" oninput="updateHours(this.value)" class="w-full accent-amber-500">
+          </div>
+
+          <div class="pt-2">
+            <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">Select CSE Subjects Mastered (1st & 2nd Year)</h4>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" checked onchange="updateSkillMatrix()" class="accent-amber-500"> <span>C / C++ Prog.</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" checked onchange="updateSkillMatrix()" class="accent-amber-500"> <span>Data Structures</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" onchange="updateSkillMatrix()" class="accent-amber-500"> <span>DBMS & SQL</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" onchange="updateSkillMatrix()" class="accent-amber-500"> <span>Operating Systems</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" onchange="updateSkillMatrix()" class="accent-amber-500"> <span>DAA (Algorithms)</span>
+              </label>
+              <label class="flex items-center space-x-2 bg-slate-50 p-2 rounded border border-slate-200">
+                <input type="checkbox" checked onchange="updateSkillMatrix()" class="accent-amber-500"> <span>Discrete Maths</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="pt-4 flex space-x-3">
+            <button onclick="saveStudentProfile()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-2.5 rounded-xl text-sm transition">
+              Save Profile & Recalculate
+            </button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYTnZwZk44kQ26B5opgUORQ6teX0HAgjWpRX-GDjD5kvQgzw/viewform" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition flex items-center">
+              Submit via Google Form ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Calculated Skill Matrix & Roadmap -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h3 class="font-bold text-slate-900 text-lg">Role Fit & Roadmap</h3>
+          <div class="text-center py-4 bg-amber-50 rounded-xl border border-amber-200">
+            <div id="readinessScore" class="text-4xl font-black text-amber-600">45%</div>
+            <p class="text-xs text-slate-600 font-medium mt-1">Role Match Coverage</p>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-xs font-bold text-slate-700 uppercase">Priority Skill Gaps</h4>
+            <div id="gapList" class="space-y-2 text-xs">
+              <!-- JS Populated -->
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <h4 class="text-xs font-bold text-slate-700 uppercase mb-1">Estimated Timeline</h4>
+            <p id="timelineEstimate" class="text-sm font-extrabold text-slate-800">12 Weeks (@ 15 hrs/wk)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CORPORATE TRAINING -->
+    <section id="tab-corporate" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">ENTERPRISE SKILL BENCHMARKING</span>
+        <h2 class="text-3xl font-black text-slate-900">Corporate & Cohort Skill Analytics</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+        <h3 class="font-bold text-slate-900">SFIA Level Competency Alignment</h3>
+        <p class="text-xs text-slate-600">Benchmarking graduate engineering cohorts against industry competency levels 1 through 5.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div class="p-4 bg-slate-50 border rounded-xl">
+            <div class="text-2xl font-bold text-slate-800">Level 2</div>
+            <div class="text-xs text-slate-500">Current Academic Average</div>
+          </div>
+          <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl">
+            <div class="text-2xl font-bold text-amber-700">Level 3</div>
+            <div class="text-xs text-slate-600">SDE-1 Entry Benchmark</div>
+          </div>
+          <div class="p-4 bg-slate-50 border rounded-xl">
+            <div class="text-2xl font-bold text-slate-800">Level 4</div>
+            <div class="text-xs text-slate-500">Mid-Level Target</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: AI ASSISTANT -->
+    <section id="tab-assistant" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">INTERACTIVE COUNSELOR</span>
+        <h2 class="text-3xl font-black text-slate-900">AI Career Assistant</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4 max-w-3xl mx-auto">
+        <div id="chatBox" class="h-64 overflow-y-auto space-y-3 p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+          <div class="bg-amber-100 text-amber-900 p-3 rounded-lg max-w-md">
+            Hello Lakshya! I am your AI Career Assistant. Ask me how to map your 2nd Year CSE subjects (DBMS, OS, DAA) to target job roles!
+          </div>
+        </div>
+        <div class="flex space-x-2">
+          <input type="text" id="chatInput" placeholder="Ask about skill gaps, project ideas, or interview tips..." class="flex-1 border border-slate-300 rounded-lg p-2.5 text-xs">
+          <button onclick="sendChatMessage()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-lg text-xs">Send</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: DASHBOARD -->
+    <section id="tab-dashboard" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">ANALYTICS & DATA HUB</span>
+        <h2 class="text-3xl font-black text-slate-900">Recorded Student Submissions</h2>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+        <div class="flex justify-between items-center">
+          <h3 class="font-bold text-slate-900">Candidate Submission Log</h3>
+          <button onclick="clearStorageData()" class="text-xs text-red-600 hover:underline">Clear Local Log</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-xs text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b">
+                <th class="p-2.5">Name</th>
+                <th class="p-2.5">Academic Year</th>
+                <th class="p-2.5">Target Role</th>
+                <th class="p-2.5">Available Time</th>
+                <th class="p-2.5">Date Added</th>
+              </tr>
+            </thead>
+            <tbody id="submissionTableBody">
+              <!-- JS Populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: ABOUT -->
+    <section id="tab-about" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">PROBLEM DOCUMENTATION</span>
+        <h2 class="text-3xl font-black text-slate-900">About ED-01 Solution & Frameworks</h2>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4 text-xs leading-relaxed text-slate-600">
+        <p><strong>Developer:</strong> Lakshya Shekhawat</p>
+        <p><strong>Track:</strong> Track 07 — EdTech & Future of Work (Problem Code: ED-01)</p>
+        <p><strong>Framework Alignment:</strong> SFIA (Skills Framework for the Information Age) & O*NET Occupational Database.</p>
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-900">
+          <strong>Safeguard Disclosure:</strong> Skill gap ratings and fit scores provide educational guidance only and do not constitute an objective evaluation of personal worth or a guarantee of employment.
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 8: CONTACT & EMBEDDED FORM -->
+    <section id="tab-contact" class="hidden space-y-6">
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">GET IN TOUCH & REGISTER</span>
+        <h2 class="text-3xl font-black text-slate-900">Candidate Intake & Google Form Hub</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <!-- Direct Links & Info -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h3 class="font-bold text-slate-900 text-lg">Developer Contact Details</h3>
+          <div class="space-y-2 text-xs text-slate-600">
+            <p><strong>Lead Developer:</strong> Lakshya Shekhawat</p>
+            <p><strong>LinkedIn Profile:</strong> <a href="https://www.linkedin.com/in/lakshya-shekhawat" target="_blank" class="text-amber-600 underline font-semibold">linkedin.com/in/lakshya-shekhawat ↗</a></p>
+            <p><strong>Web Application URL:</strong> <a href="AI-Career-Navigator.html" class="text-amber-600 underline font-semibold">AI-Career-Navigator.html</a></p>
+            <p><strong>Google Form Link:</strong> <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYTnZwZk44kQ26B5opgUORQ6teX0HAgjWpRX-GDjD5kvQgzw/viewform" target="_blank" class="text-amber-600 underline font-semibold">Open Google Form in New Tab ↗</a></p>
+          </div>
+          <div class="pt-4 border-t border-slate-100">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYTnZwZk44kQ26B5opgUORQ6teX0HAgjWpRX-GDjD5kvQgzw/viewform" target="_blank" class="block text-center bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 rounded-xl text-xs transition">
+              Open Google Form Response Form
+            </a>
+          </div>
+        </div>
+
+        <!-- Embedded Google Form Iframe -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 shadow-sm min-h-[500px]">
+          <h3 class="font-bold text-slate-900 text-sm mb-3">Live Response Submission Form</h3>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYTnZwZk44kQ26B5opgUORQ6teX0HAgjWpRX-GDjD5kvQgzw/viewform?embedded=true" width="100%" height="450" frameborder="0" marginheight="0" marginwidth="0" class="rounded-xl border border-slate-200">Loading Google Form…</iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200 px-6 py-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div>
+        © 2026 <strong>Learn IQ</strong> — Developed by <strong>Lakshya Shekhawat</strong> for ED-01 Hackathon Submission.
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com/in/lakshya-shekhawat" target="_blank" class="text-slate-600 hover:text-amber-600 font-semibold">LinkedIn</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdYTnZwZk44kQ26B5opgUORQ6teX0HAgjWpRX-GDjD5kvQgzw/viewform" target="_blank" class="text-slate-600 hover:text-amber-600 font-semibold">Google Form</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- APPLICATION LOGIC & STORAGE SCRIPT -->
+  <script>
+    const sampleSubmissions = [
+      { name: "Lakshya Shekhawat", year: "2nd Year B.Tech CSE", role: "Software Development Engineer (SDE-1)", time: "15 hrs/wk", date: "2026-10-23" },
+      { name: "Alex Rivera", year: "1st Year B.Tech CSE", role: "Backend Systems Engineer", time: "12 hrs/wk", date: "2026-10-22" }
+    ];
+
+    function switchTab(tabId) {
+      const tabs = ['home', 'courses', 'skills', 'corporate', 'assistant', 'dashboard', 'about', 'contact'];
+      tabs.forEach(t => {
+        document.getElementById('tab-' + t).classList.add('hidden');
+        const navBtn = document.getElementById('nav-' + t);
+        if (navBtn) {
+          navBtn.classList.remove('text-amber-600', 'bg-amber-50');
+        }
+      });
+
+      document.getElementById('tab-' + tabId).classList.remove('hidden');
+      const activeNav = document.getElementById('nav-' + tabId);
+      if (activeNav) {
+        activeNav.classList.add('text-amber-600', 'bg-amber-50');
+      }
+
+      if (tabId === 'dashboard') {
+        renderSubmissions();
+      }
+    }
+
+    function updateHours(val) {
+      document.getElementById('hoursLabel').innerText = val + ' hrs/wk';
+      updateSkillMatrix();
+    }
+
+    function updateSkillMatrix() {
+      const role = document.getElementById('targetRoleSelect').value;
+      const gapList = document.getElementById('gapList');
+      const score = document.getElementById('readinessScore');
+      const timeline = document.getElementById('timelineEstimate');
+      const hours = parseInt(document.getElementById('hoursSlider').value);
+
+      if (role === 'sde1') {
+        score.innerText = '55%';
+        gapList.innerHTML = `
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>DBMS & SQL Indexing</span><span class="text-red-600 font-bold">Critical</span></div>
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>Operating Systems (Paging/Mutex)</span><span class="text-amber-600 font-bold">High</span></div>
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>DAA Graph Algorithms</span><span class="text-slate-600 font-bold">Medium</span></div>
+        `;
+        timeline.innerText = Math.round(180 / hours) + ' Weeks (@ ' + hours + ' hrs/wk)';
+      } else if (role === 'backend') {
+        score.innerText = '40%';
+        gapList.innerHTML = `
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>REST API Design & Node/Go</span><span class="text-red-600 font-bold">Critical</span></div>
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>PostgreSQL & ACID Rules</span><span class="text-amber-600 font-bold">High</span></div>
+        `;
+        timeline.innerText = Math.round(210 / hours) + ' Weeks (@ ' + hours + ' hrs/wk)';
+      } else {
+        score.innerText = '35%';
+        gapList.innerHTML = `
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>PyTorch / Neural Networks</span><span class="text-red-600 font-bold">Critical</span></div>
+          <div class="flex justify-between bg-slate-50 p-2 rounded border"><span>FastAPI Model Serving</span><span class="text-amber-600 font-bold">High</span></div>
+        `;
+        timeline.innerText = Math.round(240 / hours) + ' Weeks (@ ' + hours + ' hrs/wk)';
+      }
+    }
+
+    function saveStudentProfile() {
+      const name = document.getElementById('studentName').value;
+      const year = document.getElementById('studentYear').value;
+      const roleSelect = document.getElementById('targetRoleSelect');
+      const role = roleSelect.options[roleSelect.selectedIndex].text;
+      const time = document.getElementById('hoursSlider').value + ' hrs/wk';
+      const date = new Date().toISOString().split('T')[0];
+
+      const submissions = JSON.parse(localStorage.getItem('learniq_submissions') || JSON.stringify(sampleSubmissions));
+      submissions.unshift({ name, year, role, time, date });
+      localStorage.setItem('learniq_submissions', JSON.stringify(submissions));
+
+      alert('Profile saved locally! You can view it in the Dashboard tab.');
+    }
+
+    function renderSubmissions() {
+      const submissions = JSON.parse(localStorage.getItem('learniq_submissions') || JSON.stringify(sampleSubmissions));
+      const tbody = document.getElementById('submissionTableBody');
+      tbody.innerHTML = '';
+
+      submissions.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.className = 'border-b hover:bg-slate-50';
+        tr.innerHTML = `
+          <td class="p-2.5 font-bold text-slate-800">${s.name}</td>
+          <td class="p-2.5">${s.year}</td>
+          <td class="p-2.5 font-medium text-amber-700">${s.role}</td>
+          <td class="p-2.5">${s.time}</td>
+          <td class="p-2.5 text-slate-400">${s.date}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function clearStorageData() {
+      localStorage.removeItem('learniq_submissions');
+      renderSubmissions();
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chatInput');
+      const chat = document.getElementById('chatBox');
+      if (!input.value.trim()) return;
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'bg-slate-800 text-white p-3 rounded-lg max-w-md ml-auto';
+      userDiv.innerText = input.value;
+      chat.appendChild(userDiv);
+
+      const botDiv = document.createElement('div');
+      botDiv.className = 'bg-amber-100 text-amber-900 p-3 rounded-lg max-w-md';
+      botDiv.innerText = "Great question! To bridge your " + input.value + " query, I recommend focusing on building a practical C++/DBMS project and committing your proof-of-work to GitHub.";
+      setTimeout(() => { chat.appendChild(botDiv); chat.scrollTop = chat.scrollHeight; }, 500);
+
+      input.value = '';
+    }
+
+    // Initialize default view
+    updateSkillMatrix();
+  </script>
+</body>
+</html>

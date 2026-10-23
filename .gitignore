@@ -1,0 +1,6 @@
+# Dependencies & Caches
+node_modules/
+.DS_Store
+*.log
+.vscode/
+.idea/
